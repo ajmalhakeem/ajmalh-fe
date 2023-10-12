@@ -1,5 +1,3 @@
-// my-blog/frontend/astro.config.mjs
-
 import { defineConfig } from "astro/config";
 import sanity from "astro-sanity";
 
