@@ -1,5 +1,7 @@
 ---
 import { useSanityClient } from "astro-sanity";
+import Main from "../components/Main";
+import BlogList from "../components/BlogList";
 
 const posts = await useSanityClient().fetch(`*[_type == "post"]`);
 ---
@@ -13,17 +15,7 @@ const posts = await useSanityClient().fetch(`*[_type == "post"]`);
     <title>Hakeem's Blog</title>
   </head>
   <body>
-    <h1>Hakeem's Blog</h1>
-    {
-      posts && (
-        <ul>
-          {posts.map((post) => (
-            <li>
-              <a href="post/{post.slug.current}">{post.title}</a>
-            </li>
-          ))}
-        </ul>
-      )
-    }
+    <Main client:load />
+    <BlogList client:load />
   </body>
 </html>
