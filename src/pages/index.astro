@@ -16,6 +16,6 @@ const posts = await useSanityClient().fetch(`*[_type == "post"]`);
   </head>
   <body>
     <Main client:load />
-    <BlogList client:load />
+    <BlogList client:load posts={posts} />
   </body>
 </html>

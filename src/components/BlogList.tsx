@@ -1,4 +1,4 @@
-const posts = [
+const blogPosts = [
   {
     id: 1,
     title: "Boost your conversion rate",
@@ -19,12 +19,14 @@ const posts = [
   // More posts...
 ];
 
-export default function BlogList() {
+//TODO: Change any to correct type
+export default function BlogList({ posts }: { posts: any }) {
+  console.log(posts);
   return (
     <div className="mx-auto max-w-7xl px-6 lg:px-8">
       <div className="mx-auto max-w-2xl pb-10 ">
         <div className="mt-10 space-y-16 ">
-          {posts.map((post) => (
+          {blogPosts.map((post) => (
             <article
               key={post.id}
               className="flex max-w-xl flex-col items-start justify-between"
