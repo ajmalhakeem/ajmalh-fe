@@ -26,20 +26,20 @@ export default function BlogList({ posts }: { posts: any }) {
     <div className="mx-auto max-w-7xl px-6 lg:px-8">
       <div className="mx-auto max-w-2xl pb-10 ">
         <div className="mt-10 space-y-16 ">
-          {blogPosts.map((post) => (
+          {posts.map((post) => (
             <article
-              key={post.id}
+              key={post._id}
               className="flex max-w-xl flex-col items-start justify-between"
             >
               <div className="flex items-center gap-x-4 text-xs">
-                <time dateTime={post.datetime} className="text-gray-500">
-                  {post.date}
+                <time dateTime={post._createdAt} className="text-gray-500">
+                  {post._createdAt}
                 </time>
                 <a
-                  href={post.category.href}
+                  href={`/post/${post.slug.current}`}
                   className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
                 >
-                  {post.category.title}
+                  {post.title}
                 </a>
               </div>
               <div className="group relative">
@@ -53,7 +53,7 @@ export default function BlogList({ posts }: { posts: any }) {
                   {post.description}
                 </p>
               </div>
-              <div className="relative mt-8 flex items-center gap-x-4">
+              {/* <div className="relative mt-8 flex items-center gap-x-4">
                 <img
                   src={post.author.imageUrl}
                   alt=""
@@ -68,7 +68,7 @@ export default function BlogList({ posts }: { posts: any }) {
                   </p>
                   <p className="text-gray-600">{post.author.role}</p>
                 </div>
-              </div>
+              </div> */}
             </article>
           ))}
         </div>
