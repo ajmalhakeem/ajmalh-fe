@@ -1,15 +1,20 @@
-import { defineConfig } from "astro/config";
 import sanity from "astro-sanity";
-import tailwind from "@astrojs/tailwind";
-
+import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [sanity({
-    projectId: "oo2ojieb",
-    dataset: "production",
-    apiVersion: "2023-02-08",
-    useCdn: false
-  }), tailwind(), react()]
+  output: "hybrid",
+  integrations: [
+    sanity({
+      projectId: "oo2ojieb",
+      dataset: "production",
+      // Set useCdn to false if you're building statically.
+      useCdn: false,
+      studioBasePath: "/admin",
+    }),
+    react(),
+    tailwind(),
+  ],
 });

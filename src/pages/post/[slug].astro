@@ -1,9 +1,9 @@
 ---
-import { useSanityClient } from "astro-sanity";
 import PortableText from "../../components/PortableText.astro";
+import client from "../../sanity/sanity";
 
 export async function getStaticPaths() {
-  const posts = await useSanityClient().fetch(`*[_type == "post"]`);
+  const posts = await client.fetch(`*[_type == "post"]`);
 
   return posts.map((post) => {
     return {
