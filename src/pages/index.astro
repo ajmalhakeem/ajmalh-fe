@@ -4,7 +4,17 @@ import Main from "../components/Main";
 import BlogList from "../components/BlogList";
 import Footer from "../components/Footer";
 
-const posts = await client.fetch(`*[_type == "post"]`);
+const posts = await client.fetch(`
+    *[_type == "post"]{
+      _type,
+      _id,
+      _createdAt,
+      title,
+      slug,
+      body,
+      "categoryTitle": categories[]->title
+    }
+  `);
 ---
 
 <html lang="en">
