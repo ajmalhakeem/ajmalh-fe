@@ -1,4 +1,5 @@
 ---
+import ContentSection from "../../components/ContentSection";
 import PortableText from "../../components/PortableText.astro";
 import client from "../../sanity/sanity";
 
@@ -19,6 +20,7 @@ export async function getStaticPaths() {
 const { title, body } = Astro.props;
 ---
 
-<h1>{title}</h1>
-
-<PortableText portableText={body} />
+<div>
+  <ContentSection client:load title={title} />
+  <!-- <PortableText portableText={body} /> -->
+</div>
